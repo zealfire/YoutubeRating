@@ -1,24 +1,25 @@
 {
   "name": "DOM manipulation Example",
   "version": "1.0",
-  "description": "Chrome Extension Example for manipulating DOM.",
+  "description": "Helps to see no of likes video has received without opening them",
   "content_scripts": [{
     "matches": ["*://*.youtube.com/*"],
     "js": [ 
-            "jquery.js",
-            "content.js" 
+            "js/jquery.js",
+            "js/content.js" 
           ]
   }],
   "background": {
     "persistent": true,
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
-  "permissions":["*://*.youtube.com/*"], //Put All your URL here
+  "permissions":["*://*.youtube.com/*"],
   "browser_action": {
-    "default_title": "Title Changer"
+    "default_title": "Likes shower"
   },
   "permissions": [
     "tabs"
   ],
-  "manifest_version": 2
+  "web_accessible_resources": ["images/ajax-loader.gif"],
+  "manifest_version": 1
 }
