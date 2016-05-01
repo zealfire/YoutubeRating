@@ -1,0 +1,24 @@
+{
+  "name": "DOM manipulation Example",
+  "version": "1.0",
+  "description": "Chrome Extension Example for manipulating DOM.",
+  "content_scripts": [{
+    "matches": ["*://*.youtube.com/*"],
+    "js": [ 
+            "jquery.js",
+            "content.js" 
+          ]
+  }],
+  "background": {
+    "persistent": true,
+    "scripts": ["background.js"]
+  },
+  "permissions":["*://*.youtube.com/*"], //Put All your URL here
+  "browser_action": {
+    "default_title": "Title Changer"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "manifest_version": 2
+}

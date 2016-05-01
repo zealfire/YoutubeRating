@@ -1,11 +1,13 @@
-chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Clicks ICON
-	alert("qwe"+tab.url);
-
-    if (tab.url.indexOf("https://www.google.co.in/") != -1) { // Inspect whether the place where user clicked matches with our list of URL
-        chrome.tabs.executeScript(tab.id, {
-            "file": "content.js"
-        }, function () { // Execute your code
-            console.log("Script Executed .. "); // Notification on Completion
-        });
-    }
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+   var url = tab.url;          
+   if (url !== undefined && changeInfo && changeInfo.status == "complete") {
+         chrome.tabs.sendMessage(tabId, {data: tab}, function(response) {});
+   }
 });
+/*function doStuff(tabId, changeInfo, tab){
+    chrome.tabs.onUpdated.removeListener(doStuff);
+    if (changeInfo && changeInfo.status == 'complete') {
+         chrome.tabs.sendMessage(tabId, {data: tab}, function(response) {});
+   }
+}
+chrome.tabs.onUpdated.addListener(doStuff);*/
