@@ -20,6 +20,5 @@
   "permissions": [
     "tabs"
   ],
-  "web_accessible_resources": ["images/ajax-loader.gif"],
-  "manifest_version": 1
+  "manifest_version": 2
 }
