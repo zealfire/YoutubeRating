@@ -2,6 +2,10 @@
   "name": "DOM manipulation Example",
   "version": "1.0",
   "description": "Helps to see no of likes video has received without opening them",
+  "icons": { 
+    "48": "image/youtube_likes48.png",
+    "128": "image/youtube_likes128.png" 
+    },
   "content_scripts": [{
     "matches": ["*://*.youtube.com/*"],
     "js": [ 
