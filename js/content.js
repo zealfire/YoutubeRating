@@ -46,7 +46,9 @@ function dom_changes_recorder() {
     var observer = new MutationObserver(function(mutations) {  
       mutations.forEach(function(mutation) {
         if(mutation.type == 'childList') {
-            threads("watch-more-related");
+            if (mutation.addedNodes.length > 1) {
+                threads("watch-more-related");
+            }
         }
       });    
     });
